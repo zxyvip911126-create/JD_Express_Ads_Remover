@@ -2,13 +2,21 @@
   "manifest_version": 2,
   "name": "JD Express Ads Remover",
   "version": "1.0",
-  "description": "Removes JD Express opening screen ads",
+  "description": "Remove opening ads from JD Express",
   "permissions": [
-    "activeTab"
+    "activeTab",
+    "webNavigation"
   ],
   "background": {
-    "scripts": ["background.js"]
+    "scripts": ["background.js"],
+    "persistent": false
   },
+  "content_scripts": [
+    {
+      "matches": ["https://www.jd.com/*"],
+      "js": ["background.js"]
+    }
+  ],
   "browser_action": {
     "default_popup": "popup.html"
   }

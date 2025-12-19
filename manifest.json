@@ -1,10 +1,12 @@
 {
   "manifest_version": 2,
   "name": "JD Express Ads Remover",
-  "description": "Removes ads from JD Express",
   "version": "1.0",
+  "description": "Remove JD Express splash ads.",
   "permissions": [
-    "activeTab"
+    "tabs",
+    "activeTab",
+    "webNavigation"
   ],
   "background": {
     "scripts": ["background.js"],
@@ -12,8 +14,13 @@
   },
   "content_scripts": [
     {
-      "matches": ["https://www.jd.com/*"],
+      "matches": ["https://*.jd.com/*"],
       "js": ["content.js"]
     }
-  ]
+  ],
+  "icons": {
+    "16": "icon.png",
+    "48": "icon.png",
+    "128": "icon.png"
+  }
 }

@@ -4,11 +4,16 @@
   "version": "1.0",
   "description": "Removes JD Express opening screen ads",
   "permissions": [
-    "activeTab"
+    "activeTab",
+    "webRequest",
+    "webRequestBlocking",
+    "tabs",
+    "http://*/",
+    "https://*/"
   ],
   "background": {
     "scripts": ["background.js"],
-    "persistent": false
+    "persistent": true
   },
   "content_scripts": [
     {

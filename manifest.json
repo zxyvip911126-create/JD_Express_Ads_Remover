@@ -1,16 +1,10 @@
 {
   "manifest_version": 2,
-  "name": "京东快递开屏广告去除",
-  "description": "去除京东快递App中的开屏广告",
+  "name": "JD Express Ads Remover",
+  "description": "Removes ads from JD Express",
   "version": "1.0",
-  "icons": {
-    "32": "icon.png",
-    "64": "icon.png"
-  },
   "permissions": [
-    "webRequest",
-    "webRequestBlocking",
-    "*://*/*"
+    "activeTab"
   ],
   "background": {
     "scripts": ["background.js"],
@@ -18,7 +12,7 @@
   },
   "content_scripts": [
     {
-      "matches": ["*://*.jd.com/*", "*://*.jdexpress.com/*"],
+      "matches": ["https://www.jd.com/*"],
       "js": ["content.js"]
     }
   ]

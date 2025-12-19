@@ -1,12 +1,7 @@
-chrome.webNavigation.onCompleted.addListener(function(details) {
-  // 执行广告隐藏代码
-  chrome.tabs.executeScript(details.tabId, {
-    code: `
-      // 替换为正确的广告选择器
-      const adElement = document.querySelector('.splash-ad');  // 需要替换为京东快递广告的选择器
-      if (adElement) {
-        adElement.style.display = 'none';  // 隐藏广告
-      }
-    `
-  });
-}, {url: [{urlMatches: 'https://www.jd.com/*'}, {urlMatches: 'https://m.jd.com/*'}]});
+chrome.webRequest.onBeforeRequest.addListener(function(details) {
+  // 这里根据实际的广告请求 URL 来拦截广告
+  if (details.url.includes("ad") || details.url.includes("advertise") || details.url.includes("ads")) {
+    console.log("Blocking ad request: ", details.url); // Debug log
+    return { cancel: true };  // 阻止广告请求
+  }
+}, { urls: ["*://*.jd.com/*"] }, ["blocking"]);

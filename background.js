@@ -1,11 +1,8 @@
-chrome.webRequest.onBeforeRequest.addListener(
-  function(details) {
-    // 这里的条件根据广告的URL进行判断，如果是广告的请求就拦截
-    if (details.url.includes("ad") || details.url.includes("advertise")) {
-      console.log("Blocking ad request: ", details.url); // Debug log
-      return { cancel: true };  // 阻止广告请求
-    }
-  },
-  { urls: ["*://*.jd.com/*"] },  // 只拦截来自京东的请求
-  ["blocking"]
-);
+// Wait for the page to fully load
+window.onload = function() {
+  // Find the ad element and hide it (you will need to replace the selector with the actual ad element)
+  let adElement = document.querySelector('.ad-element');  // Replace with the correct class or id of the ad
+  if (adElement) {
+    adElement.style.display = 'none';  // Hides the ad
+  }
+}

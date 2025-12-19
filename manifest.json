@@ -1,24 +1,15 @@
 {
   "manifest_version": 2,
   "name": "JD Express Ads Remover",
+  "description": "Removes ads from JD Express app",
   "version": "1.0",
-  "description": "Removes JD Express opening screen ads",
-  "permissions": [
-    "activeTab",
-    "webRequest",
-    "webRequestBlocking",
-    "tabs",
-    "http://*/",
-    "https://*/"
-  ],
   "background": {
     "scripts": ["background.js"],
     "persistent": true
   },
-  "content_scripts": [
-    {
-      "matches": ["https://www.jd.com/*", "https://m.jd.com/*"],
-      "js": ["background.js"]
-    }
+  "permissions": [
+    "webRequest",
+    "webRequestBlocking",
+    "tabs"
   ]
 }
